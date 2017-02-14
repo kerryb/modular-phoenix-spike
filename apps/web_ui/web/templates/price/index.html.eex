@@ -1,0 +1,1 @@
+<p class="lead">Current price is <%= @price %>.</p>
