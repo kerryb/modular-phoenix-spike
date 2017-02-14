@@ -17,6 +17,7 @@ defmodule WebUi.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PriceController, :index
+    post "/refresh", PriceController, :refresh
   end
 
   # Other scopes may use custom stacks.
