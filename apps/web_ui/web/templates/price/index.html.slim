@@ -2,4 +2,7 @@ p.lead
   ' Current price is
   = @price
   ' .
+p
+  ' Last updated:
+  = DateTime.to_string @timestamp
 = button "Refresh", to: "/refresh", class: "btn btn-default"

@@ -3,7 +3,8 @@ defmodule WebUi.PriceController do
 
   def index(conn, _params) do
     conn
-    |> assign(:price, PriceStore.current_price)
+    |> assign(:price, PriceStore.current_price.price)
+    |> assign(:timestamp, PriceStore.current_price.timestamp)
     |> render("index.html")
   end
 

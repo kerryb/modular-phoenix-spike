@@ -10,6 +10,7 @@ defmodule PriceStore.Application do
 
     children = [
       worker(PriceStore.Store, []),
+      worker(PriceStore.RefreshTimer, []),
     ]
 
     opts = [strategy: :one_for_one, name: PriceStore.Supervisor]
