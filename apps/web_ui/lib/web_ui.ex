@@ -1,5 +1,6 @@
 defmodule WebUi do
   use Application
+  alias WebUi.PriceChannel
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
   # for more information on OTP Applications
@@ -17,6 +18,7 @@ defmodule WebUi do
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: WebUi.Supervisor]
+    PriceStore.subscribe &PriceChannel.update_price/1
     Supervisor.start_link(children, opts)
   end
 
