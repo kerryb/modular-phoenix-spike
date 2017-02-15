@@ -1,5 +1,6 @@
 defmodule PriceStore do
   alias PriceStore.Store
+  alias PriceStore.RefreshTimer
 
   def current_price do
     Store.read()
@@ -15,6 +16,8 @@ defmodule PriceStore do
     |> Map.get("l")
     |> Store.save
   end
+
+  def subscribe(function), do: RefreshTimer.subscribe function
 
   defp proxy_options do
     case System.get_env "http_proxy" do
