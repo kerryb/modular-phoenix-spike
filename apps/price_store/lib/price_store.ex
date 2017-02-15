@@ -26,6 +26,5 @@ defmodule PriceStore do
         %{host: host, port: port} = URI.parse http_proxy
         [proxy_host: host |> String.to_charlist, proxy_port: port]
     end
-    [proxy_host: 'proxy.intra.bt.com', proxy_port: 8080]
   end
 end
